@@ -1,20 +1,24 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
+/* You can keep small custom CSS here without @apply if you want maximum stability */
 :root {
   color-scheme: light;
 }
 
-html, body {
+html,
+body {
   height: 100%;
 }
 
 body {
-  @apply bg-white text-slate-900 antialiased;
+  background: white;
+  color: rgb(15 23 42); /* slate-900 */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Subtle professional selection */
+/* Optional: selection style */
 ::selection {
-  @apply bg-slate-900 text-white;
+  background: rgb(15 23 42);
+  color: white;
 }

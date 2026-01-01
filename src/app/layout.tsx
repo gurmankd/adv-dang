@@ -1,68 +1,70 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Inter } from "next/font/google";
-import { SeoJsonLd } from "@/components/seo-jsonld";
+import { site } from "@/lib/site";
 
 const inter = Inter({
   subsets: ["latin"],
   display: "swap",
 });
 
-const SITE_NAME = "Advocate Dharmendra Singh Dang";
-const SITE_URL = "https://example.com"; // TODO: replace after domain purchase
-const OG_IMAGE = "/og.jpg"; // TODO: add later
-
 export const metadata: Metadata = {
-  metadataBase: new URL(SITE_URL),
+  metadataBase: new URL(site.url),
   title: {
-    default: `${SITE_NAME} | Rudrapur & Nainital High Court`,
-    template: `%s | ${SITE_NAME}`,
+    default: "Advocate Dharmendra Singh Dang | Rudrapur & Nainital High Court",
+    template: "%s | Advocate Dharmendra Singh Dang",
   },
   description:
-    "Practicing Advocate since 2009. Criminal matters, cheque bounce (NI Act 138) and family disputes. District & Sessions Court Rudrapur and High Court Nainital.",
-  applicationName: SITE_NAME,
+    "Practicing Advocate since 2009. Criminal matters, cheque bounce cases (NI Act 138), and family disputes. District & Sessions Court Rudrapur and High Court Nainital.",
   alternates: {
-    canonical: SITE_URL,
+    canonical: site.url,
+  },
+  icons: {
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+    ],
+    apple: "/apple-touch-icon.png",
   },
   openGraph: {
     type: "website",
-    url: SITE_URL,
-    title: `${SITE_NAME} | Rudrapur & Nainital High Court`,
+    url: site.url,
+    title: "Advocate Dharmendra Singh Dang | Rudrapur & Nainital High Court",
     description:
-      "Criminal law, cheque bounce cases and family matters. Free initial consultation. In-person within 50 km, otherwise video consultation.",
-    siteName: SITE_NAME,
-    images: [{ url: OG_IMAGE, width: 1200, height: 630, alt: SITE_NAME }],
+      "Criminal law, cheque bounce cases and family matters. Free initial consultation. In-person within 50 km or video consultation.",
+    siteName: "Advocate Dharmendra Singh Dang",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Advocate Dharmendra Singh Dang",
+      },
+    ],
     locale: "en_IN",
   },
   twitter: {
     card: "summary_large_image",
-    title: `${SITE_NAME} | Rudrapur & Nainital High Court`,
+    title: "Advocate Dharmendra Singh Dang",
     description:
-      "Criminal law, cheque bounce cases and family matters. Free initial consultation.",
-    images: [OG_IMAGE],
+      "Criminal law, cheque bounce cases and family matters. Practicing since 2009.",
+    images: ["/og-image.png"],
   },
   robots: {
     index: true,
     follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-snippet": -1,
-      "max-image-preview": "large",
-      "max-video-preview": -1,
-    },
   },
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{ children: React.ReactNode }>) {
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en" className={inter.className}>
-      <body>
-        <SeoJsonLd />
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
