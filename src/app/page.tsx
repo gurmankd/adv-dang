@@ -88,7 +88,7 @@ export default function HomePage() {
                   <div className="text-lg font-semibold text-slate-900">{p.title}</div>
                   <p className="mt-2 text-sm text-slate-600">{p.short}</p>
                   <ul className="mt-4 space-y-2 text-sm text-slate-700">
-                    {p.bullets.map((b) => (
+                    {p.howWeHelp.slice(0, 3).map((b) => (
                       <li key={b} className="flex gap-2">
                         <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-slate-900" />
                         <span>{b}</span>

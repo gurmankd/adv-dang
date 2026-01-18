@@ -10,8 +10,13 @@ export function generateStaticParams() {
   return practiceAreas.map((p) => ({ slug: p.slug }));
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
-  const p = practiceAreas.find((x) => x.slug === params.slug);
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const p = practiceAreas.find((x) => x.slug === slug);
   if (!p) return {};
   return {
     title: p.seoTitle,
@@ -55,8 +60,14 @@ function SectionList({ title, items }: { title: string; items: string[] }) {
   );
 }
 
-export default function PracticeAreaSlugPage({ params }: { params: { slug: string } }) {
-  const p = practiceAreas.find((x) => x.slug === params.slug);
+export default async function PracticeAreaSlugPage({
+   params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+
+  const p = practiceAreas.find((x) => x.slug === slug);
   if (!p) return notFound();
 
   return (
