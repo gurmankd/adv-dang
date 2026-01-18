@@ -7,7 +7,7 @@ import { practiceAreas } from "@/lib/site";
 export const metadata = {
   title: "Practice Areas",
   description:
-    "Practice areas of Advocate Dharmendra Singh Dang in Rudrapur and Nainital High Court: criminal law, cheque bounce, family law, and more.",
+    "Practice areas of Advocate Dharmendra Singh Dang: criminal law, cheque bounce (NI Act 138), family law and more.",
 };
 
 export default function PracticeAreasPage() {
@@ -21,7 +21,7 @@ export default function PracticeAreasPage() {
               Practice Areas
             </h1>
             <p className="mt-3 max-w-3xl text-sm leading-relaxed text-slate-700">
-              Dedicated pages for each area so clients can quickly understand the process and next steps.
+              Explore each practice area to understand typical matters handled and consultation options.
             </p>
           </Container>
         </section>

@@ -13,9 +13,7 @@ export default function HomePage() {
   return (
     <>
       <Navbar />
-
       <main>
-        {/* Hero */}
         <section className="border-b border-slate-200 bg-gradient-to-b from-slate-50 to-white">
           <Container>
             <div className="py-14 md:py-20">
@@ -28,6 +26,7 @@ export default function HomePage() {
               <h1 className="mt-6 max-w-3xl text-3xl font-semibold tracking-tight text-slate-900 md:text-5xl">
                 {site.name}
               </h1>
+
               <p className="mt-4 max-w-3xl text-base leading-relaxed text-slate-700 md:text-lg">
                 Criminal matters, cheque bounce cases (NI Act 138) and family disputes — with
                 courtroom-focused guidance and representation.
@@ -51,21 +50,20 @@ export default function HomePage() {
               </div>
 
               <div className="mt-10 grid gap-4 md:grid-cols-3">
-                {site.highlights.map((h) => (
-                  <div
-                    key={h}
-                    className="rounded-2xl border border-slate-200 bg-white p-5"
-                  >
-                    <div className="text-sm font-medium text-slate-900">{h}</div>
-                    <div className="mt-1 text-sm text-slate-600">
-                      Professional, clear and court-aligned guidance.
-                    </div>
-                  </div>
-                ))}
                 <div className="rounded-2xl border border-slate-200 bg-white p-5">
-                  <div className="text-sm font-medium text-slate-900">
-                    Consultation Options
+                  <div className="text-sm font-medium text-slate-900">1300+ cases handled</div>
+                  <div className="mt-1 text-sm text-slate-600">
+                    Practical guidance aligned to courtroom process.
                   </div>
+                </div>
+                <div className="rounded-2xl border border-slate-200 bg-white p-5">
+                  <div className="text-sm font-medium text-slate-900">Practicing since 2009</div>
+                  <div className="mt-1 text-sm text-slate-600">
+                    Regular appearances in Rudrapur courts and Nainital High Court.
+                  </div>
+                </div>
+                <div className="rounded-2xl border border-slate-200 bg-white p-5">
+                  <div className="text-sm font-medium text-slate-900">Consultation Options</div>
                   <div className="mt-1 text-sm text-slate-600">
                     {site.consultation.initial}. {site.consultation.inPersonRule}
                   </div>
@@ -75,25 +73,19 @@ export default function HomePage() {
           </Container>
         </section>
 
-        {/* Top practice areas */}
         <section className="py-14">
           <Container>
             <h2 className="text-2xl font-semibold tracking-tight text-slate-900">
               Practice Areas
             </h2>
             <p className="mt-2 max-w-3xl text-sm leading-relaxed text-slate-600">
-              Focus areas that most clients seek online — with dedicated pages for clarity.
+              Dedicated pages so clients can understand the matter and next steps quickly.
             </p>
 
             <div className="mt-8 grid gap-5 md:grid-cols-3">
               {topAreas.map((p) => (
-                <div
-                  key={p.slug}
-                  className="rounded-2xl border border-slate-200 bg-white p-6"
-                >
-                  <div className="text-lg font-semibold text-slate-900">
-                    {p.title}
-                  </div>
+                <div key={p.slug} className="rounded-2xl border border-slate-200 bg-white p-6">
+                  <div className="text-lg font-semibold text-slate-900">{p.title}</div>
                   <p className="mt-2 text-sm text-slate-600">{p.short}</p>
                   <ul className="mt-4 space-y-2 text-sm text-slate-700">
                     {p.bullets.map((b) => (
@@ -119,68 +111,7 @@ export default function HomePage() {
             </div>
           </Container>
         </section>
-
-        {/* Location + quick contact */}
-        <section className="border-t border-slate-200 bg-slate-50 py-14">
-          <Container>
-            <div className="grid gap-8 md:grid-cols-2 md:items-center">
-              <div>
-                <h2 className="text-2xl font-semibold tracking-tight text-slate-900">
-                  Office & Courts
-                </h2>
-                <p className="mt-2 text-sm leading-relaxed text-slate-600">
-                  {site.chamber}. Available during {site.hours}. Regular appearances at:
-                </p>
-                <ul className="mt-4 space-y-2 text-sm text-slate-700">
-                  {site.courts.map((c) => (
-                    <li key={c} className="flex gap-2">
-                      <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-slate-900" />
-                      <span>{c}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className="rounded-2xl border border-slate-200 bg-white p-6">
-                <div className="text-sm font-medium text-slate-900">Contact</div>
-                <div className="mt-3 space-y-2 text-sm text-slate-700">
-                  <div>
-                    Phone:{" "}
-                    <a className="underline" href={`tel:${site.phones[0]}`}>
-                      {site.phones[0]}
-                    </a>{" "}
-                    /{" "}
-                    <a className="underline" href={`tel:${site.phones[1]}`}>
-                      {site.phones[1]}
-                    </a>
-                  </div>
-                  <div>
-                    Email:{" "}
-                    <a className="underline" href={`mailto:${site.email}`}>
-                      {site.email}
-                    </a>
-                  </div>
-                  <div>Languages: {site.languages.join(", ")}</div>
-                </div>
-                <div className="mt-5 flex flex-wrap gap-3">
-                  <ButtonLink href="/contact" variant="primary">
-                    Book Consultation
-                  </ButtonLink>
-                  <ButtonLink
-                    href={`https://wa.me/91${site.whatsapp}?text=${encodeURIComponent(
-                      "Hello, I would like to consult regarding a legal matter."
-                    )}`}
-                    variant="secondary"
-                  >
-                    WhatsApp
-                  </ButtonLink>
-                </div>
-              </div>
-            </div>
-          </Container>
-        </section>
       </main>
-
       <Footer />
     </>
   );

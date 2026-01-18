@@ -17,24 +17,22 @@ export default function AboutPage() {
       <main>
         <section className="border-b border-slate-200 bg-slate-50 py-12">
           <Container>
-            <h1 className="text-3xl font-semibold tracking-tight text-slate-900">
-              About
-            </h1>
+            <h1 className="text-3xl font-semibold tracking-tight text-slate-900">About</h1>
             <p className="mt-3 max-w-3xl text-sm leading-relaxed text-slate-700">
-              Advocate Dharmendra Singh Dang has been practicing since {site.practicingSince},
-              regularly appearing before the District & Sessions Court, Rudrapur and the High Court at Nainital.
+              Advocate Dharmendra Singh Dang has been actively practicing since {site.practicingSince},
+              appearing before the District & Sessions Court, Rudrapur and the High Court at Nainital.
             </p>
             <div className="mt-4 flex flex-wrap gap-2">
               <Badge>Bar Enrollment: {site.barEnrollment}</Badge>
-              <Badge>{site.highlights[0]}</Badge>
-              <Badge>{site.highlights[1]}</Badge>
+              <Badge>Chamber No. 27, Rudrapur Court</Badge>
+              <Badge>Languages: {site.languages.join(", ")}</Badge>
             </div>
           </Container>
         </section>
 
         <section className="py-12">
           <Container>
-            <div className="grid gap-8 md:grid-cols-2">
+            <div className="grid gap-6 md:grid-cols-2">
               <div className="rounded-2xl border border-slate-200 bg-white p-6">
                 <h2 className="text-lg font-semibold text-slate-900">Education</h2>
                 <div className="mt-3 text-sm text-slate-700">
@@ -46,7 +44,7 @@ export default function AboutPage() {
               </div>
 
               <div className="rounded-2xl border border-slate-200 bg-white p-6">
-                <h2 className="text-lg font-semibold text-slate-900">Professional Role</h2>
+                <h2 className="text-lg font-semibold text-slate-900">Bar Association Role</h2>
                 <div className="mt-3 text-sm text-slate-700">
                   <div className="font-medium">{site.leadership.role}</div>
                   <div className="mt-1">
